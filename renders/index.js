@@ -7,10 +7,9 @@ const {ipcRenderer} = require('electron');
 
 const tagDom = document.getElementById('TagInfo')
 
-const userMap = {
-    "cb:09:46:33": "Bob Bobbesen",
-    "08:ff:12:01": "Admin Jensen"
-}
+const config = require('config')
+console.log(config)
+const userMap = config.get('users')
 
 ipcRenderer.on('find-id', (_, id) => {
     if (!userMap[id]) {
