@@ -24,7 +24,9 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-register": "^6.16.3",
-    "electron": "^1.4.4"
+    "config": "^1.21.0",
+    "electron": "^1.4.4",
+    "js-yaml": "^3.6.1"
   },
   "dependencies": {
     "nfc": "^0.3.3"

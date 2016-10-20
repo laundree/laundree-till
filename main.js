@@ -3,6 +3,7 @@ const electron = require('electron')
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
+const {nfc} = require('nfc')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,9 +15,14 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`)
+  var device = new nfc.NFC();
+
+  device.on('read', tag => mainWindow.webContents.send('find-id', tag.uid))
+  device.on('error', err => console.error(err))
+  device.start();
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -24,6 +30,7 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
+    device.stop()
   })
 }
 
@@ -48,22 +55,6 @@ app.on('activate', function () {
     createWindow()
   }
 })
-
-
-var nfc  = require('nfc').nfc
-
-console.log('nfc.version(): ', nfc.version())
-
-console.log('nfc.scan(): ', nfc.scan());
-
-var device = new nfc.NFC();
-device.on('read', function(tag) {
-    if (!mainWindow) return
-    mainWindow.webContents.send('find-id', tag.uid);
-})
-.on('error', function(err) {
-    // handle background error;
-}).start();
 
 
 // In this file you can include the rest of your app's specific main process
