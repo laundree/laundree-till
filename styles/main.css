@@ -47,6 +47,9 @@ h1 {
 
 #IntroDialog img {
     border-radius: 0.5em;
+    -webkit-box-shadow: 0 0 0.4em #24506f;
+    -moz-box-shadow: 0 0 0.4em #24506f;
+    box-shadow: 0 0 0.4em #24506f;
 }
 
 #IntroDialog.step1 > div:not(.step1) {
