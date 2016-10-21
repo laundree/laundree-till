@@ -33,12 +33,20 @@ h1 {
     padding: 5em 0;
 }
 
-#IntroDialog svg {
+
+#IntroDialog svg, #IntroDialog img {
     display: block;
     width: 8em;
     height: 8em;
-    fill: #078d92;
     margin: auto auto 5em;
+}
+
+#IntroDialog svg {
+    fill: #078d92;
+}
+
+#IntroDialog img {
+    border-radius: 0.5em;
 }
 
 #IntroDialog.step1 > div:not(.step1) {

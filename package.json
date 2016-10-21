@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "debug": "^2.2.0",
+    "laundree-sdk": "0.0.5",
     "nfc": "^0.3.3",
     "open-sans-fontface": "^1.4.0",
     "react-redux": "^4.4.5",
