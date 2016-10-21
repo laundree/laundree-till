@@ -1,0 +1,64 @@
+body {
+    background-color: #66D3D3;
+    font-size: 11pt;
+    margin: 0;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+#TopBar {
+    -webkit-app-region: drag;
+    background: linear-gradient(#71d2cd, #5cb3b3);
+    animation: loadAnimate 0.5s linear;
+    padding: 1em 0;
+}
+
+#TopBar svg {
+    margin: auto;
+    display: block;
+    height: 2em;
+}
+
+#IntroDialog {
+    padding: 5em 0;
+}
+
+#IntroDialog svg {
+    display: block;
+    width: 8em;
+    height: 8em;
+    fill: #078d92;
+    margin: auto auto 5em;
+}
+
+#IntroDialog.step1 > div:not(.step1) {
+    display: none;
+}
+
+#IntroDialog.step2 > div:not(.step2) {
+    display: none;
+}
+
+main {
+    padding: 1em;
+    position: relative;
+}
+
+@keyframes loadAnimate {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
