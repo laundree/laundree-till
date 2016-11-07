@@ -39,7 +39,7 @@
     "react-dom": "^15.3.2"
   },
   "dependencies": {
-    "debug": "^2.2.0",
+    "debug": "^2.3.0",
     "laundree-sdk": "0.0.8",
     "nfc": "^0.3.3",
     "open-sans-fontface": "^1.4.0",
