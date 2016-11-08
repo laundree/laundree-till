@@ -4,7 +4,12 @@ const BrowserWindow = electron.BrowserWindow
 const { nfc } = require('nfc')
 const { sendAction, actions: { updateCardId } } = require('./redux')
 const defaultConfig = require('./config/default.json')
-const localConfig = require('./config/local.json')
+let localConfig
+try {
+  localConfig = require('./config/local.json')
+} catch (err) {
+  localConfig = {}
+}
 
 const config = Object.assign(defaultConfig, localConfig)
 
