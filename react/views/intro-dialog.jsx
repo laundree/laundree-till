@@ -1,12 +1,12 @@
 const React = require('react')
 const { Sdk } = require('laundree-sdk')
-const config = require('config')
+const config = require('../../config/default.json')
 
 class IntroDialog extends React.Component {
 
   constructor (props) {
     super(props)
-    this.sdk = new Sdk(config.get('laundree.address'))
+    this.sdk = new Sdk(config.laundree.address)
     this.state = {}
   }
 

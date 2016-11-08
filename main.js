@@ -3,7 +3,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const { nfc } = require('nfc')
 const { sendAction, actions: { updateCardId } } = require('./redux')
-const config = require('config')
+const config = require('./config/default.json')
 
 let mainWindow
 
@@ -23,13 +23,13 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     titleBarStyle: 'hidden',
     backgroundColor: '#66D3D3',
-    width: 400,
-    height: 600
+    width: 800,
+    height: 480
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
-  if (config.get('showDevTools')) mainWindow.webContents.openDevTools()
+  if (config.showDevTools) mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     mainWindow = null
