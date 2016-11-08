@@ -33,9 +33,32 @@ RUN apt-get update && apt-get install -y \
     libssh-4 \
     libusb \
     fbset \
+    zip \
+    gcc \
+    autoconf \
+    automake \
+    libtool \
+    pkg-config \
+    make \
+    usbutils \
     libexpat-dev && rm -rf /var/lib/apt/lists/*
 
-# Set Xorg and FLUXBOX preferences
+
+RUN wget https://github.com/nfc-tools/libnfc/archive/libnfc-1.7.1.tar.gz && \
+    tar -xvzf libnfc-1.7.1.tar.gz && \
+    sh -c "echo /usr/local/lib > /etc/ld.so.conf.d/usr-local-lib.conf" && \
+    ldconfig && \
+    mkdir -p .etc/nfc/devices.d
+
+RUN (cd libnfc-libnfc-1.7.1 && \
+    autoreconf -vis && \
+    ./configure --with-drivers=pn532_uart --enable-debug --prefix=/usr --sysconfdir=/etc && \
+    make clean && \
+    make && \
+    make install && \
+    mkdir /etc/nfc)
+RUN echo "device.name = 'PN532'\ndevice.connstring = pn532_uart:/dev/ttyUSB0" >> /etc/nfc/libnfc.conf
+
 RUN mkdir ~/.fluxbox
 RUN echo "xset s off" > ~/.fluxbox/startup && echo "xserver-command=X -s 0 dpms" >> ~/.fluxbox/startup
 RUN echo "#!/bin/bash" > /etc/X11/xinit/xserverrc && \
