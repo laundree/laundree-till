@@ -6,5 +6,6 @@
     "laundree": {
         "address": "https://laundree.io"
     },
-    "showDevTools": false
+    "showDevTools": false,
+    "kiosk": true
 }

@@ -3,7 +3,10 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const { nfc } = require('nfc')
 const { sendAction, actions: { updateCardId } } = require('./redux')
-const config = require('./config/default.json')
+const defaultConfig = require('./config/default.json')
+const localConfig = require('./config/local.json')
+
+const config = Object.assign(defaultConfig, localConfig)
 
 let mainWindow
 
@@ -23,6 +26,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     titleBarStyle: 'hidden',
     backgroundColor: '#66D3D3',
+    kiosk: config.kiosk,
     width: 800,
     height: 480
   })
