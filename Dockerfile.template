@@ -1,5 +1,7 @@
 FROM laundree/%%RESIN_MACHINE_NAME%%-till-base:latest
 
+WORKDIR /usr/src
+
 # Move package.json to filesystem
 COPY "$SOURCEFOLDER/package.json" ./
 
