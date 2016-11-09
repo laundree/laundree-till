@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-till-base:latest
+FROM laundree/%%RESIN_MACHINE_NAME%%-till-base:latest
 
 # Move package.json to filesystem
 COPY "$SOURCEFOLDER/package.json" ./
