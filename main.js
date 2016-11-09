@@ -29,7 +29,7 @@ try {
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    titleBarStyle: 'hidden',
+    frame: false,
     backgroundColor: '#66D3D3',
     kiosk: config.kiosk,
     width: 800,
