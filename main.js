@@ -24,7 +24,7 @@ try {
   device.start()
 } catch (err) {
   console.error('Couldn\'t start Till: ', err)
-  return app.quit()
+  // return app.quit()
 }
 
 function createWindow () {
