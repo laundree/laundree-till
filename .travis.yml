@@ -2,6 +2,7 @@ install: true
 script:
   - echo "No Tests"
 deploy:
+  skip_cleanup: true
   provider: script
   script: "./deploy.sh"
   on:
