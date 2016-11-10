@@ -4,5 +4,7 @@
 const {combineReducers} = require('redux')
 
 module.exports = combineReducers({
-  cardId: require('./card-id')
+  cardId: require('./card-id'),
+  user: require('./user'),
+  error: require('./error')
 })

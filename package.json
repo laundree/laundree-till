@@ -39,6 +39,7 @@
     "electron-rebuild": "^1.3.0",
     "laundree-sdk": "0.0.8",
     "nfc": "^0.3.3",
+    "onoff": "^1.1.1",
     "open-sans-fontface": "^1.4.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

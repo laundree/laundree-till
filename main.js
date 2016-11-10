@@ -1,24 +1,11 @@
 const electron = require('electron')
 const app = electron.app
-const BrowserWindow = electron.BrowserWindow
 const { nfc } = require('nfc')
-const { sendAction, actions: { updateCardId } } = require('./redux')
-const defaultConfig = require('./config/default.json')
-let localConfig
-try {
-  localConfig = require('./config/local.json')
-} catch (err) {
-  localConfig = {}
-}
-
-const config = Object.assign(defaultConfig, localConfig)
+const WindowHandler = require('./handlers/window')
 
 let mainWindow
 
-var device = new nfc.NFC()
-
-device.on('read', ({ uid }) => sendAction(mainWindow, updateCardId(uid)))
-device.on('error', err => console.error(err))
+const device = new nfc.NFC()
 
 try {
   device.start()
@@ -28,18 +15,7 @@ try {
 }
 
 function createWindow () {
-  mainWindow = new BrowserWindow({
-    frame: false,
-    backgroundColor: '#66D3D3',
-    kiosk: config.kiosk,
-    width: 800,
-    height: 480
-  })
-
-  mainWindow.loadURL(`file://${__dirname}/index.html`)
-
-  if (config.showDevTools) mainWindow.webContents.openDevTools()
-
+  mainWindow = WindowHandler.createWindow(device)
   mainWindow.on('closed', function () {
     mainWindow = null
   })

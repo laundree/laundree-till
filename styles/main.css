@@ -16,22 +16,64 @@ h1 {
     font-size: 1.5em;
 }
 
+button {
+    width: 10em;
+    background: #28aaba;
+    border: 0;
+    color: #ffffff;
+    padding: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: 'Roboto Condensed', sans-serif;
+    transition: 0.1s, 0.1s background, color;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+button.red {
+    background-color: #e55564;
+}
+
 #TopBar {
     -webkit-app-region: drag;
     animation: loadAnimate 0.5s linear;
-    padding: 1em 0;
+    position: relative;
+    height: 4em;
 }
 
 #TopBar svg {
-    margin: auto;
+    position: absolute;
+    left: 1em;
     display: block;
     height: 2em;
+    width: 9em;
+    top: 1em;
+}
+
+#TopBar .avatar {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+}
+
+#TopBar .avatar img {
+    height: 3em;
+    width: 3em;
+    float: right;
+}
+
+#TopBar .avatar .name {
+    padding: 1em;
+    display: block;
+    float: left;
+    color: #365454;
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
 
 #IntroDialog {
     padding: 5em 0;
 }
-
 
 #IntroDialog svg, #IntroDialog img {
     display: block;
@@ -57,6 +99,21 @@ h1 {
 
 #IntroDialog.step2 > div:not(.step2) {
     display: none;
+}
+
+#Timer {
+    padding: 5em 0;
+    text-align: center;
+}
+
+#Timer .time {
+    font-size: 6em;
+    font-weight: bold;
+    color: #3a5f5f;
+}
+
+#Timer .buttons {
+    padding-top: 4em;
 }
 
 main {

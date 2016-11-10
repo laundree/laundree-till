@@ -3,10 +3,10 @@
  */
 
 const connect = require('react-redux').connect
-const IntroDialog = require('../views/intro-dialog.jsx')
+const Timer = require('../views/timer.jsx')
 
 const mapStateToProps = ({cardId, user}) => {
   return {cardId, user}
 }
 
-module.exports = connect(mapStateToProps)(IntroDialog)
+module.exports = connect(mapStateToProps)(Timer)
