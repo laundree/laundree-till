@@ -39,3 +39,4 @@ dist
 config/local.*
 .idea
 config/local.json
+id_rsa

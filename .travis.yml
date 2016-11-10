@@ -1,0 +1,15 @@
+install: true
+deploy:
+  provider: script
+  script:
+    - eval "$(ssh-agent -s)"
+    - chmod 0600 id_rsa
+    - ssh-add ./id_rsa
+    - cat resinkey >> ~/.ssh/known_hosts
+    - git remote add resin g_christian_budde_christensen@git.resin.io:g_christian_budde_christensen/laundree1.git
+    - git push resin master
+  on:
+    branch: master
+before_install:
+- openssl aes-256-cbc -K $encrypted_29d5a5f76b8b_key -iv $encrypted_29d5a5f76b8b_iv
+  -in id_rsa.enc -out id_rsa -d
