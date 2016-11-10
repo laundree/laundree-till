@@ -18,7 +18,6 @@ h1 {
 
 #TopBar {
     -webkit-app-region: drag;
-    background: linear-gradient(#71d2cd, #5cb3b3);
     animation: loadAnimate 0.5s linear;
     padding: 1em 0;
 }
