@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 while true; do
     rm /tmp/.X0-lock &>/dev/null || true
     modprobe -r pn533
