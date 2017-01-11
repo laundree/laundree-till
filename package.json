@@ -43,7 +43,7 @@
     "open-sans-fontface": "^1.4.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
+    "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-actions": "^0.12.0",
     "roboto-fontface": "^0.6.0"
